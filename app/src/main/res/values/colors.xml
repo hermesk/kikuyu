@@ -21,4 +21,11 @@
 
     <!-- Background color for the phrases category -->
     <color name="category_phrases">#16AFCA</color>
+
+    <!-- Background color for the weekdays category -->
+    <color name="category_weekdays">#9E9E9E</color>
+    <!-- Background color for the bodyparts category -->
+    <color name="category_bodyparts">#BDBDBD</color>
+
+
 </resources>

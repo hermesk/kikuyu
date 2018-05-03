@@ -40,7 +40,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
         // find textview in the list_item.xml layout
         TextView miwokTextView = listItemView.findViewById(R.id.miwok_text_view);
 
-        miwokTextView.setText(currentWord.getmMiwokTranslation());
+        miwokTextView.setText(currentWord.getmKikuyuTranslation());
 
         TextView defaultTextView = listItemView.findViewById(R.id.default_text_view);
 

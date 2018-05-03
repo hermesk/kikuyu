@@ -49,4 +49,16 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, ColorsActivity.class);
         startActivity(i);
     }
+
+    public void openWeekdaysList(View view) {
+
+        Intent i = new Intent(this, Weekdays.class);
+        startActivity(i);
+    }
+
+    public void openBodypartsList(View view) {
+
+        Intent i = new Intent(this, BodyParts.class);
+        startActivity(i);
+    }
 }

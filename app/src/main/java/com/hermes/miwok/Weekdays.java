@@ -1,13 +1,15 @@
 package com.hermes.miwok;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
-import android.media.MediaPlayer;
 
 import java.util.ArrayList;
 
-public class FamilyActivity extends AppCompatActivity {
+public class Weekdays extends AppCompatActivity {
     private  MediaPlayer mMediaPlayer;
        /**
      * Handles audio focus when playing a sound file
@@ -59,36 +61,36 @@ public class FamilyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
+
         //create aan arrayList of string
-       final ArrayList<Word> words = new ArrayList<Word>();
+       final  ArrayList<Word> words = new ArrayList<Word>();
 
-        words.add(new Word("Father","baba",R.drawable.family_father,R.raw.family_father));
-        words.add(new Word("Mother","mami",R.drawable.family_mother,R.raw.family_mother));
-        words.add(new Word("Grandmother","cucu",R.drawable.family_grandmother,R.raw.family_grandmother));
-        words.add(new Word("Grandfather","guka",R.drawable.family_grandfather,R.raw.family_grandfather));
-        words.add(new Word("Uncle","mama",R.drawable.family_father,R.raw.family_father));
-        words.add(new Word("Aunt","tata",R.drawable.family_mother,R.raw.family_grandfather));
-        words.add(new Word("Brother","muru wa maitu",R.drawable.family_younger_brother,R.raw.family_younger_brother));
-        words.add(new Word("Sister","mwari wa maitu",R.drawable.family_younger_sister,R.raw.family_younger_sister));
-        words.add(new Word("Wife","mutumia",R.drawable.family_older_sister,R.raw.family_older_sister));
-        words.add(new Word("Husband","muthuri",R.drawable.family_older_brother,R.raw.family_older_brother));
-        words.add(new Word("Son","murue",R.drawable.family_son,R.raw.family_son));
-        words.add(new Word("Daughter","mwariwe",R.drawable.family_daughter,R.raw.family_daughter));
+        words.add(new Word("Monday","mwambiriiro",R.drawable.family_son,R.raw.number_one));
+        words.add(new Word("Tuesday","wairi",R.drawable.family_son,R.raw.number_one));
+        words.add(new Word("Wednesday","wetatu",R.drawable.family_son,R.raw.number_one));
+        words.add(new Word("Thursday","wena",R.drawable.family_son,R.raw.number_one));
+        words.add(new Word("Friday","wetano",R.drawable.family_son,R.raw.number_one));
+        words.add(new Word("Saturday","juma",R.drawable.family_son,R.raw.number_one));
+        words.add(new Word("Sunday","kiumia",R.drawable.family_son,R.raw.number_one));
+        words.add(new Word("Tomorrow","ruciu",R.drawable.family_son,R.raw.number_one));
+        words.add(new Word("Yesterday","ira",R.drawable.family_son,R.raw.number_one));
+        words.add(new Word("Day after Tomorrow","oke",R.drawable.family_son,R.raw.number_one));
+        words.add(new Word("Day before Yesterday","iyo",R.drawable.family_son,R.raw.number_one));
 
-
-        WordAdapter adapter = new WordAdapter(this,words,R.color.category_family);
+        WordAdapter adapter = new WordAdapter(this,words,R.color.category_weekdays);
 
         ListView listView =  findViewById(R.id.list);
 
         listView.setAdapter(adapter);
-          listView.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(android.widget.AdapterView<?> parent, android.view.View view, int position, long id) {
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Word word = words.get(position);
-                 // Request audio focus so in order to play the audio file. The app needs to play a
+                // Request audio focus so in order to play the audio file. The app needs to play a
                 // short audio file, so we will request audio focus with a short amount of time
                 // with AUDIOFOCUS_GAIN_TRANSIENT.
+
                 int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
                         android.media.AudioManager.STREAM_MUSIC, android.media.AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
@@ -97,7 +99,7 @@ public class FamilyActivity extends AppCompatActivity {
 
                     // Create and setup the {@link MediaPlayer} for the audio resource associated
                     // with the current word
-                    mMediaPlayer = MediaPlayer.create(FamilyActivity.this, word.getAudioResourceId());
+                    mMediaPlayer = MediaPlayer.create(Weekdays.this, word.getAudioResourceId());
 
                     // Start the audio file
                     mMediaPlayer.start();
@@ -117,7 +119,7 @@ public class FamilyActivity extends AppCompatActivity {
         // be playing any more sounds.
         releaseMediaPlayer();
    }
-                  /**
+               /**
     /**
      * Clean up the media player by releasing its resources.
      */

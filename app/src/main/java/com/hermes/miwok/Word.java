@@ -8,17 +8,25 @@ public class Word {
      **/
     private String mDefaultTranslation;
     /**
-     * Miwok Translation of the word
+     * Kikuyu Translation of the word
      **/
-    private String mMiwokTranslation;
+    private String mKikuyuTranslation;
 
-    /** Image resource ID for the word */
+    /**
+     * Image resource ID for the word
+     */
   private int mImageResourceId = NO_IMAGE_PROVIDED;
 
-    public Word(String defaultTranslation, String miwokTranslation) {
+  /**
+     * audioResourse ID
+     **/
+  private  int mAudioResourceId;
+
+    public Word(String defaultTranslation, String kikuyuTranslation, int audioResourceId) {
 
         mDefaultTranslation = defaultTranslation;
-        mMiwokTranslation = miwokTranslation;
+        mKikuyuTranslation = kikuyuTranslation;
+        mAudioResourceId = audioResourceId;
     }
 
     /**
@@ -26,15 +34,16 @@ public class Word {
      * +     *
      * +     * @param defaultTranslation is the word in a language that the user is already familiar with
      * +     *                           (such as English)
-     * +     * @param miwokTranslation is the word in the Miwok language
+     * +     * @param KikuyuTranslation is the word in the Kikuyu language
      * +     * @param imageResourceId is the drawable resource ID for the image associated with the word
      * +     *
      * +
      */
-    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId) {
+    public Word(String defaultTranslation, String KikuyuTranslation, int imageResourceId,int audioResourceId) {
         mDefaultTranslation = defaultTranslation;
-        mMiwokTranslation = miwokTranslation;
+        mKikuyuTranslation = KikuyuTranslation;
         mImageResourceId = imageResourceId;
+        mAudioResourceId = audioResourceId;
     }
 
 
@@ -46,10 +55,10 @@ public class Word {
     }
 
     /**
-     * Get Miwok translation
+     * Get Kikuyu translation
      */
-    public String getmMiwokTranslation() {
-        return mMiwokTranslation;
+    public String getmKikuyuTranslation() {
+        return mKikuyuTranslation;
     }
 
     public int getmImageResourceId() {
@@ -58,5 +67,12 @@ public class Word {
 
     public  boolean hasImage(){
         return mImageResourceId != NO_IMAGE_PROVIDED;
+    }
+
+        /**
+     * Return the audio resource ID of the word.
+     */
+    public int getAudioResourceId() {
+        return mAudioResourceId;
     }
 }
